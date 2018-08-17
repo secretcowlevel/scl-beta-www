@@ -1,9 +1,12 @@
 
 // Initial orgs state
 const formsInitialState = {
-    invite: '',
-    username: '',
-    email: ''
+    values: {
+        code: '',
+        username: '',
+        email: ''
+    },
+    message: null
 }
 
 function formReducer(state = formsInitialState, action) {
@@ -11,10 +14,14 @@ function formReducer(state = formsInitialState, action) {
         case 'SET_FORM_VALUES':
             return {
                 ...state,
-                ...action.values
+                values: action.values
+            }
+        case 'SET_ERROR_MESSAGE':
+            return {
+                ...state,
+                message: action.message
             }
         default:
-        console.log('BANANA')
             return state
     }
 }
