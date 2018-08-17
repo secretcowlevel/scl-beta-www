@@ -30,7 +30,7 @@ const styles = {
     }
 }
 
-export default class InputField extends Component {
+export default class TextInput extends Component {
   static propTypes = {
       id: string.isRequired,
       name: string.isRequired,

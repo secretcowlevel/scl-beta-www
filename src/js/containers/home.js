@@ -1,8 +1,10 @@
-import React, {Component, Fragment} from 'react'
-import {Link} from 'react-router-dom'
-
+import React, {Component} from 'react'
+// import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 import TextInput from '../components/TextInput'
-export default class Home extends Component {
+import {setFormValues} from '../actions/form'
+
+class Home extends Component {
     static propTypes= {
 
     }
@@ -26,6 +28,11 @@ export default class Home extends Component {
         },
         containerContent: {
             margin: '20px'
+        },
+        button: {
+            border: '1px solid gray',
+            height: '33px',
+            backgroundColor: 'white'
         }
     }
 
@@ -33,7 +40,14 @@ export default class Home extends Component {
         // console.log('did it');
     }
 
+    onType = e => {
+        const newValues = {...this.props.values}
+        newValues[e.target.name] = e.target.value;
+        this.props.setFormValues(newValues);
+    }
+
     render() {
+        console.log('+++ ' + JSON.stringify(this.props.values))
         return (
             <div style={Home.styles.backdrop}>
                 <div style={Home.styles.container}>
@@ -41,13 +55,23 @@ export default class Home extends Component {
                         Beta Registration
                     </div>
                     <div style={Home.styles.containerContent}>
-                        <TextInput label="Invite Code" type="text" />
-                        <TextInput label="Username" type="text" />
-                        <TextInput label="Email Address" type="text" />
-                        <button type="submit">Submit</button>
+                        <TextInput onChange={this.onType} id="invite" name="invite" value={this.props.values.invite} label="Invite Code" type="text" />
+                        <TextInput onChange={this.onType} id="username" name="username" value={this.props.values.username} label="Username" type="text" />
+                        <TextInput onChange={this.onType} id="email" name="email" value={this.props.values.email} label="Email Address" type="text" />
+                        <button onClick={this.props.setFormValues} style={Home.styles.button} type="submit">Submit</button>
                     </div>
                 </div>
             </div>
         )
     }
 }
+
+const mapStateToProps = state => ({
+    values: state.form
+})
+
+const mapDispatchToProps = {
+    setFormValues
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
