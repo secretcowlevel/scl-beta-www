@@ -4,12 +4,12 @@ import {
 
 import {postData} from '../utilities/networking'
 import {setErrorMessage} from '../actions/form'
+import history from '../index'
 
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 
 
 function* fetchPostRegistration(action) {
-    console.log(JSON.stringify(action.values, null, 2))
     const options = {
         url: 'http://localhost:1337/register',
         headers: {},
@@ -19,8 +19,10 @@ function* fetchPostRegistration(action) {
     const data = yield call([result, result.json])
     if (data.statusCode !== 200) {
         yield put(setErrorMessage(data.message))
+    } else {
+        console.warn('ACCOUNT CREATED')
+        yield put(history.push('/finished'))
     }
-    console.log(JSON.stringify(data, null, 2))
 }
 /*
   Alternatively you may use takeLatest.

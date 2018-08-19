@@ -1,7 +1,8 @@
 import React from 'react'
 import {
-    BrowserRouter, Route, Switch, Redirect
+    Router, Route, Switch, Redirect
 } from 'react-router-dom'
+import {createBrowserHistory} from 'history'
 import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
 import App from './app'
@@ -11,15 +12,18 @@ import configureStore from './store'
 
 const store = configureStore()
 
+const history = createBrowserHistory()
+export default history
+
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter>
+        <Router history={history}>
             <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/app" component={App} />
+                <Route exact path="/finished" component={App} />
                 <Redirect from="*" to="/" />
             </Switch>
-        </BrowserRouter>
+        </Router>
     </Provider>, document.getElementById('scl-container')
 )
 

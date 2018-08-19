@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-// import {Link} from 'react-router-dom'
+import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import TextInput from '../components/TextInput'
 import {setFormValues, submitRegistrationForm} from '../actions/form'
@@ -11,7 +11,7 @@ class Home extends Component {
 
     static styles = {
         backdrop: {
-            // background: "url('http://doomtroopergame.com/assets/img/dt-bg.jpg') no-repeat center fixed",
+            background: "url('http://doomtroopergame.com/assets/img/dt-bg.jpg') no-repeat center fixed",
             backgroundSize: 'cover',
             width: '100%',
             height: '100%',
@@ -36,6 +36,13 @@ class Home extends Component {
         }
     }
 
+    static propTypes = {
+        setFormValues: PropTypes.func.isRequired,
+        submitRegistrationForm: PropTypes.func.isRequired,
+        values: PropTypes.shape().isRequired,
+        message: PropTypes.string
+    }
+
     componentDidMount() {
         // console.log('did it');
     }
@@ -52,7 +59,6 @@ class Home extends Component {
     }
 
     render() {
-        console.log(`+++ ${JSON.stringify(this.props.values)}`)
         return (
             <div style={Home.styles.backdrop}>
                 <div style={Home.styles.container}>
@@ -62,9 +68,9 @@ class Home extends Component {
                     </div>
                     <div style={Home.styles.containerContent}>
                         <TextInput onChange={this.onType} id="code" name="code" value={this.props.values.code} label="Invite Code" type="text" />
-                        <TextInput onChange={this.onType} id="username" name="username" value={this.props.values.username} label="Username" type="text" />
                         <TextInput onChange={this.onType} id="email" name="email" value={this.props.values.email} label="Email Address" type="text" />
-                        <button onClick={this.submitForm} style={Home.styles.button} type="submit">Submit</button>
+                        <TextInput onChange={this.onType} id="username" name="username" value={this.props.values.username} label="Choose Username" type="text" />
+                        <button onClick={this.submitForm} style={Home.styles.button} type="submit">Register</button>
                     </div>
                 </div>
             </div>

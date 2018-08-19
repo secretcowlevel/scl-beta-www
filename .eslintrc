@@ -5,6 +5,7 @@
         "indent": [2, 4, {
             "SwitchCase": 1
         }],
+        "react/destructuring-assignment": 0, # turning this off because it fights against no-shadow with redux!
         "max-len": [1, 160],
         "quote-props": [1, "consistent-as-needed"],
         "react/jsx-indent": [1, 4],

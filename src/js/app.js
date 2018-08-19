@@ -12,7 +12,7 @@ import React, {Fragment} from 'react'
 
 const App = () => (
     <Fragment>
-        <h1>Route Loaded</h1>
+        <h1>Finished! Check your email</h1>
     </Fragment>
 )
 
