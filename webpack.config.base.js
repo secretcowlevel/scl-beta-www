@@ -17,15 +17,22 @@ module.exports = {
                 use: {
                     loader: 'babel-loader'
                 }
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader'
+                ]
             }
         ]
     },
     output: {
-        path: path.join(__dirname, 'app/'),
+        path: path.join(__dirname, 'dist/'),
         filename: 'bundle.js'
     },
     resolve: {
-        extensions: ['.js', '.jsx']
+        modules: ['src', 'node_modules']
     },
+
     plugins: []
 }

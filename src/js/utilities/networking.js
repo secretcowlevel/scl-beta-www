@@ -47,14 +47,14 @@ const getData = (options) => { // eslint-disable-line no-multi-assign
     })
 }
 
-// const getBaseDomain = () => {
-//     return window.localStorage.getItem('scl-server-override')
-//     || process.env.NODE_ENV === 'production' ? 'http://scl.getofftheinter.net' : 'http://localhost:1337'
-// }
+const getBaseDomain = () => {
+    return process.env.NODE_ENV === 'production' ? 'https://api.doomtroopergame.com' : 'http://localhost:1337'
+}
 
 export {
     postData,
     getData,
     deleteData,
-    patchData
+    patchData,
+    getBaseDomain
 }

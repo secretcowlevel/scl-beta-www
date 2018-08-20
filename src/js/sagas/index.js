@@ -2,16 +2,15 @@ import {
     call, put, takeLatest
 } from 'redux-saga/effects'
 
-import {postData} from '../utilities/networking'
+import {postData, getBaseDomain} from '../utilities/networking'
 import {setErrorMessage} from '../actions/form'
-import history from '../index'
+// import history from '../index'
 
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 
-
 function* fetchPostRegistration(action) {
     const options = {
-        url: 'http://localhost:1337/register',
+        url: `${getBaseDomain()}/register`,
         headers: {},
         data: action.values
     }
@@ -20,8 +19,7 @@ function* fetchPostRegistration(action) {
     if (data.statusCode !== 200) {
         yield put(setErrorMessage(data.message))
     } else {
-        console.warn('ACCOUNT CREATED')
-        yield put(history.push('/finished'))
+        yield put(setErrorMessage('Account Created! Check your email to continue!'))
     }
 }
 /*
