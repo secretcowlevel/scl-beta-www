@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import AgencyFont from 'fonts/Agency.ttf';
+import SupermolotFont from 'fonts/TT-Supermolot-Regular.ttf';
 
 const {
     string, bool, func, object, any
@@ -12,7 +12,7 @@ const styles = {
         alignItems: 'center',
         boxSizing: 'content-box',
         color: '#a9fffc',
-        fontSize: '1.1rem',
+        fontSize: '1rem',
         textTransform: 'uppercase',
         textShadow: '0 0 0.3rem',
         letterSpacing: '0.1rem',
@@ -72,7 +72,7 @@ export default class TextInput extends Component {
 
               <label
                   className="controlLabel"
-                  style={{...styles.label, fontFamily: AgencyFont}}
+                  style={{...styles.label, fontFamily: SupermolotFont}}
                   htmlFor={id}
               >
                   {label}
