@@ -3,6 +3,7 @@
 
 <head>
     <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <style>
         * {
@@ -19,6 +20,150 @@
 </head>
 
 <body>
+    <style>
+        .Typist {
+            display: inline-block;
+        }
+
+        .title {
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0px 0px 2.5rem;
+            font-size: 3rem;
+            line-height: 1;
+            animation: text-flicker 3s linear 0s infinite normal none running;
+            letter-spacing: 0.1rem;
+        }
+
+        @media (max-width: 35rem) {
+            .title {
+                margin: 0px 0px 1.5rem !important;
+                font-size: 1.8rem;
+            }
+
+            .introText {
+                font-size: 0.8rem !important;
+            }
+
+            .controlLabel {
+                font-size: 0.8rem !important;
+            }
+
+            .fieldInput {
+                padding: 0.3rem !important;
+                font-size: 0.8rem !important;
+            }
+
+            .collectionButton {
+                padding: 0.4rem 2rem !important;
+                font-size: 0.8rem !important;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1
+            }
+        }
+
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes growOut {
+            0% {
+                opacity: 1;
+                transformOrigin: 50% 50%;
+                transform: scale3d(1, 1, 1);
+            }
+            100% {
+                opacity: 0;
+                transformOrigin: 50% 50%;
+                transform: scale3d(2, 2, 1);
+            }
+        }
+
+        @keyframes fog_move {
+            0% {
+                transform: translateX(75%);
+                opacity: 0;
+            }
+            30% {
+                opacity: 0.6;
+            }
+            60% {
+                transform: translateX(-75%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(-75%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes text-flicker {
+            0% {
+                opacity:0.1;
+                text-shadow: 0px 0px 29px;
+            }
+
+            2% {
+                opacity:1;
+                text-shadow: 0px 0px 29px;
+            }
+            8% {
+                opacity:0.1;
+                text-shadow: 0px 0px 29px;
+            }
+            9% {
+                opacity:1;
+                text-shadow: 0px 0px 29px;
+            }
+            12% {
+                opacity:0.1;
+                text-shadow: 0px 0px;
+            }
+            20% {
+                opacity:1;
+                text-shadow: 0px 0px 29px;
+            }
+            25% {
+                opacity:0.3;
+                text-shadow: 0px 0px 29px;
+            }
+            30% {
+                opacity:1;
+                text-shadow: 0px 0px 29px;
+            }
+
+            70% {
+                opacity:0.7;
+                text-shadow: 0px 0px 29px;
+            }
+
+            72% {
+                opacity:0.2;
+                text-shadow:0px 0px 29px;
+            }
+
+            77% {
+                opacity:.9;
+                text-shadow: 0px 0px 29px;
+            }
+            100% {
+                opacity:.9;
+                text-shadow: 0px 0px 29px;
+            }
+        }
+    </style>
     <div id="scl-container">
     </div>
     <script src="/dist/bundle.js"></script>

@@ -1,5 +1,6 @@
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import AgencyFont from 'fonts/Agency.ttf';
 
 const {
     string, bool, func, object, any
@@ -10,19 +11,24 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         boxSizing: 'content-box',
-        color: '#333',
-        fontWeight: '600',
-        fontSize: '16px',
-        marginBottom: 3
+        color: '#a9fffc',
+        fontSize: '1.1rem',
+        textTransform: 'uppercase',
+        textShadow: '0 0 0.3rem',
+        letterSpacing: '0.1rem',
+        marginBottom: '0.3rem'
     },
     input: {
         position: 'relative',
-        width: '80%',
-        border: '1px solid rgb(189, 189, 189)',
-        height: '32px',
-        paddingLeft: '10px',
-        paddingRight: '40px',
-        fontSize: '16px'
+        width: '100%',
+        padding: '0.5rem 0.5rem',
+        color: '#a9fffc',
+        fontSize: '1.5rem',
+        textShadow: '0 0 0.3rem',
+        background: 'rgba(7, 7, 8, 0.8)',
+        border: '1px solid rgb(45, 88, 87)',
+        outline: 'none',
+        boxSizing: 'border-box'
 
     },
     inputContainer: {
@@ -62,10 +68,11 @@ export default class TextInput extends Component {
 
       const {showPassword} = this.state
       return (
-          <div style={{padding: '11px 0'}}>
+          <div style={{padding: '0.7rem 0'}}>
 
               <label
-                  style={styles.label}
+                  className="controlLabel"
+                  style={{...styles.label, fontFamily: AgencyFont}}
                   htmlFor={id}
               >
                   {label}
@@ -80,10 +87,11 @@ export default class TextInput extends Component {
                       )}
                   <input
                       autoComplete="off"
+                      className="fieldInput"
                       style={{
                           ...styles.input,
-                          border: errorMessage ? '1px solid rgb(255, 0, 0)' : '1px solid rgb(189, 189, 189)',
-                          backgroundColor: disabled ? 'rgba(149, 149, 149, 0.1)' : errorMessage ? 'rgba(255, 0, 0, 0.10)' : 'rgb(255, 255, 255)'
+                          border: errorMessage ? '1px solid rgb(255, 0, 0)' : styles.input.border,
+                          backgroundColor: disabled ? 'rgba(149, 149, 149, 0.1)' : errorMessage ? 'rgba(255, 0, 0, 0.10)' : styles.input.background
                       }}
                       placeholder={placeholder}
                       disabled={disabled ? 'disabled' : ''}
