@@ -68,7 +68,7 @@ export default class TextInput extends Component {
 
       const {showPassword} = this.state
       return (
-          <div style={{padding: '0.7rem 0'}}>
+          <div style={{padding: '0 0 0.5rem 0'}}>
 
               <label
                   className="controlLabel"

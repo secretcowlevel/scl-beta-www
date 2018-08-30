@@ -77,7 +77,7 @@ class Home extends Component {
                     <div style={{...AppStyles.flexCenter, position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, width: '100%', height: '100%', padding: '10%', boxSizing: 'border-box'}}>
                         <div>
                             <h1 className="title" style={{...AppStyles.title, fontFamily: LoadedFont}}>Doomtrooper</h1>
-                            <div className="introText" style={{fontFamily: SupermolotFont}}>
+                            <div className="introText" style={{fontFamily: SupermolotFont, padding: '0 0 1rem 0'}}>
                                 If you've been invited to play Doomtrooper, please input your code below! The code will create an account and email you the information to install the client!
                             </div>
 
