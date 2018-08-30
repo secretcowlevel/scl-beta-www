@@ -82,7 +82,7 @@ class Home extends Component {
                             </div>
 
                             {this.props.message && <div style={{color: 'red'}}>{this.props.message}</div>}
-                            <TextInput onChange={this.onType} id="code" name="code2" value={this.props.values.code} label="Invite Code" type="text" />
+                            <TextInput onChange={this.onType} id="code" name="code" value={this.props.values.code} label="Invite Code" type="text" />
                             <TextInput onChange={this.onType} id="email" name="email" value={this.props.values.email} label="Email Address" type="text" />
                             <TextInput onChange={this.onType} id="username" name="username" value={this.props.values.username} label="Choose Username" type="text" />
                             <div style={AppStyles.textCenter}>
