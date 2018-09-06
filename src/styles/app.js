@@ -35,13 +35,13 @@ const AppStyles = {
         width: '100%',
         height: '100%',
         flex: 1,
-        backgroundImage: 'url("http://doomtroopergame.com/assets/img/dt-bg.jpg")',
+        backgroundImage: 'url("https://doomtroopergame.com/assets/img/dt-bg.jpg")',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center center',
         backgroundSize: 'cover'
     },
     backdrop: {
-        background: "url('http://doomtroopergame.com/assets/img/dt-bg.jpg') no-repeat center fixed",
+        background: "url('https://doomtroopergame.com/assets/img/dt-bg.jpg') no-repeat center fixed",
         backgroundSize: 'cover',
         width: '100%',
         height: '100%',
